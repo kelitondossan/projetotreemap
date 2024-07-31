@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+.container {
+    width: 100%;
+    max-width: 12000px;
+}
+
+#frutasInputsContainer {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.frutaInput {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+}
+
+.frutaInput label {
+    width: 150px;
+}
+
+#treeMapContainer {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); /* Organiza em 3 colunas */
+    border: 2px solid #ccc;
+    margin: none;
+    padding: none;
+}
+
+.treeMapItem {
+    box-sizing: border-box;
+    border: 2px solid white;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px; 
+    transition: all 0.3s ease; 
+}
+
+.treeMapItem:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    transform: scale(1.05); 
+}
+
+.verde {
+    background-color: #4CAF50; 
+}
+
+.amarelo {
+    background-color: #FFC107; 
+}
+
+.vermelho {
+    background-color: #F44336; 
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #333;
+}
+
+select {
+    margin-bottom: 20px;
+    padding: 5px;
+}
