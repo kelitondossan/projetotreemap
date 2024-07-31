@@ -24,7 +24,7 @@ class FrutaDivertida {
         const cor = this.calcularCor();
         const elemento = document.createElement('div');
         elemento.className = `treeMapItem ${cor}`;
-        elemento.style.flexBasis = `${tamanho}%`;
+        elemento.style.flexGrow = tamanho;
         elemento.textContent = `${this.nome} (${this.vendas}) - ${tamanho.toFixed(2)}%`;
         return elemento;
     }
@@ -63,7 +63,6 @@ let frutasDivertidas = [
     new FrutaDivertida('Durian', 80),
     new FrutaDivertida('Pitanga', 25),
     new FrutaDivertida('Maracujá', 60),
-    new FrutaDivertida('Graviola', 40),
     new FrutaDivertida('Cabeludinha', 20),
     new FrutaDivertida('Jabuticaba', 50),
     new FrutaDivertida('Goiaba', 45),
@@ -110,34 +109,12 @@ let frutasDivertidas = [
     new FrutaDivertida('Saúva', 40),
     new FrutaDivertida('Guaraná', 55),
     new FrutaDivertida('Bacaba', 30),
-    new FrutaDivertida('Açaí', 70),
-    new FrutaDivertida('Camucamu', 45),
-    new FrutaDivertida('Piquiá', 60),
-    new FrutaDivertida('Murtilla', 20),
-    new FrutaDivertida('Murici', 75),
-    new FrutaDivertida('Mamey', 50),
-    new FrutaDivertida('Romã', 85),
-    new FrutaDivertida('Cassis', 45),
-    new FrutaDivertida('Maçã verde', 65),
-    new FrutaDivertida('Maçã Fuji', 30),
     new FrutaDivertida('Banana nanica', 55),
     new FrutaDivertida('Banana-prata', 40),
     new FrutaDivertida('Pera d’água', 25),
-    new FrutaDivertida('Pera rocha', 70),
-    new FrutaDivertida('Pêssego branco', 50),
-    new FrutaDivertida('Pêssego amarelo', 75),
-    new FrutaDivertida('Laranja baía', 90),
-    new FrutaDivertida('Laranja pera', 40),
-    new FrutaDivertida('Marula', 60),
-    new FrutaDivertida('Chirimoya', 50),
-    new FrutaDivertida('Cardamomo', 30),
-    new FrutaDivertida('Mangaba', 45),
-    new FrutaDivertida('Garapá', 55),
-    new FrutaDivertida('Caputuna', 20),
-    new FrutaDivertida('Camapu', 70),
-    new FrutaDivertida('Mandioca', 40),
-    new FrutaDivertida('Pequiá', 65)
+    
 ];
+
 
 function gerarInputs() {
     const container = document.getElementById('frutasInputsContainer');
@@ -182,6 +159,14 @@ function atualizarTreeMap() {
         }
     });
 
+    frutasDivertidas.sort((a, b) => b.vendas - a.vendas);
+
+    frutasDivertidas.forEach(fruta => {
+        const elemento = fruta.criarElemento();
+        treeMapContainer.appendChild(elemento);
+    });
+}
+
     frutasDivertidas.sort((a, b) => {
         const corA = a.calcularCor();
         const corB = b.calcularCor();
@@ -198,7 +183,6 @@ function atualizarTreeMap() {
         const elemento = fruta.criarElemento();
         treeMapContainer.appendChild(elemento);
     });
-}
 
 document.addEventListener('DOMContentLoaded', () => {
     gerarInputs();
