@@ -1,23 +1,26 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0;
     padding: 20px;
-
-
     background-color: #f0f0f0;
 }
 
 h1 {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
 }
 
 .container {
     width: 100%;
     max-width: 1200px;
-    padding: 10px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .filtroContainer {
@@ -28,7 +31,7 @@ h1 {
 }
 
 #frutasInputsContainer {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -37,33 +40,38 @@ h1 {
 .frutaInput {
     display: flex;
     align-items: center;
-    gap: 1px;
+    gap: 10px;
 }
 
 .frutaInput label {
     width: 150px;
+    font-weight: bold;
 }
 
 #treeMapContainer {
     display: flex;
     flex-wrap: wrap;
-    gap: 1px;
+    gap: 5px;
     border: 2px solid #ccc;
+    border-radius: 10px;
+
+    justify-content: space-evenly;
+    background-color: #f9f9f9;
 }
 
 .treeMapItem {
     display: flex;
     box-sizing: border-box;
-    border: 1px solid white;
-    border-radius: 5%;
+    border-radius: 10px;
     color: white;
     font-weight: bold;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 1px;
-    aspect-ratio: 1.8;
+    padding: 10px;
     transition: all 0.3s ease;
+    flex-basis: calc(25% - 10px);
+    aspect-ratio: 1;
 }
 
 .treeMapItem:hover {
@@ -75,19 +83,33 @@ footer {
     margin-top: 20px;
     font-size: 14px;
     color: #333;
+    text-align: center;
 }
 
-select {
+select, input[type="number"], #frutaFiltro {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     margin-bottom: 20px;
-    padding: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
     width: 100%;
 }
 
-@media (max-width: 600px) {
-    .filtroContainer {
-        flex-direction: column;
-        gap: 5px;
-    }
+button:hover {
+    background-color: #0056b3;
 }
 
 @media (max-width: 600px) {
@@ -95,21 +117,16 @@ select {
         padding: 10px;
     }
 
-    .frutaInput label {
-        width: auto;
-        margin-right: 10px;
-    }
-
-    #frutasInputsContainer {
-        gap: 1px;
-    }
-
-    #treeMapContainer {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    .container {
+        padding: 10px;
     }
 
     .filtroContainer {
         flex-direction: column;
         gap: 5px;
+    }
+
+    .treeMapItem {
+        flex-basis: calc(50% - 10px);
     }
 }
