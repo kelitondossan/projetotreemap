@@ -36,7 +36,25 @@ let frutasDivertidas = [
     new FrutaDivertida('Banana', 50),
     new FrutaDivertida('Laranja', 30),
     new FrutaDivertida('Abacaxi', 20),
-    new FrutaDivertida('Melancia', 90)
+    new FrutaDivertida('Melancia', 90),
+    new FrutaDivertida('Uva', 45),
+    new FrutaDivertida('Manga', 70),
+    new FrutaDivertida('Pera', 15),
+    new FrutaDivertida('Kiwi', 5),
+    new FrutaDivertida('Morango', 55),
+    new FrutaDivertida('Limão', 25),
+    new FrutaDivertida('Coco', 35),
+    new FrutaDivertida('Goiaba', 40),
+    new FrutaDivertida('Pêssego', 65),
+    new FrutaDivertida('Cereja', 10),
+    new FrutaDivertida('Ameixa', 28),
+    new FrutaDivertida('Mamão', 85),
+    new FrutaDivertida('Jabuticaba', 60),
+    new FrutaDivertida('Framboesa', 75),
+    new FrutaDivertida('Mirtilo', 95),
+    
+    
+ 
 ];
 
 function gerarInputs() {
