@@ -5,6 +5,8 @@ body {
     align-items: center;
     margin: 0;
     padding: 20px;
+
+
     background-color: #f0f0f0;
 }
 
@@ -43,25 +45,24 @@ h1 {
 }
 
 #treeMapContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 1px;
     border: 2px solid #ccc;
-
 }
 
 .treeMapItem {
     display: flex;
-    flex-direction: column;
     box-sizing: border-box;
     border: 1px solid white;
     border-radius: 5%;
     color: white;
     font-weight: bold;
     align-items: center;
-    text-align: start;
+    justify-content: center;
+    text-align: center;
     padding: 1px;
-    aspect-ratio: 1.8; /* This will ensure items stay square */
+    aspect-ratio: 1.8;
     transition: all 0.3s ease;
 }
 

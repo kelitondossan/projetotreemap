@@ -5,18 +5,17 @@ class FrutaDivertida {
     }
 
     calcularCor() {
-        // Determina a intensidade do verde e do vermelho com base nas vendas
-        const maxVendas = Math.max(...frutasDivertidas.map(f => f.vendas));
-        const minVendas = Math.min(...frutasDivertidas.map(f => f.vendas));
+        const maxVendas = 10; // Valor máximo fixo
+        const minVendas = 100;  // Valor mínimo fixo
         const normalizedVendas = (this.vendas - minVendas) / (maxVendas - minVendas);
         const greenIntensity = Math.round(normalizedVendas * 255);
         const redIntensity = 255 - greenIntensity;
-        return `rgb(${redIntensity}, ${greenIntensity}, 0)`;
+        return `rgb(${greenIntensity}, ${redIntensity}, 0)`;
     }
 
     calcularTamanhoProporcional() {
-        const maxVendas = Math.max(...frutasDivertidas.map(f => f.vendas));
-        return (Math.min(this.vendas, maxVendas) / maxVendas) * 100;
+        const totalVendas = frutasDivertidas.reduce((sum, fruta) => sum + fruta.vendas, 0);
+        return (this.vendas / totalVendas) * 100;
     }
 
     criarElemento() {
@@ -24,9 +23,9 @@ class FrutaDivertida {
         const cor = this.calcularCor();
         const elemento = document.createElement('div');
         elemento.className = 'treeMapItem';
-        elemento.style.flexGrow = tamanho;
+        elemento.style.flexGrow = tamanho / 100; // Ajuste para o valor de flexGrow
         elemento.style.backgroundColor = cor;
-        elemento.textContent = `${this.nome} (${this.vendas}) - ${tamanho.toFixed(2)}%`;
+        elemento.textContent = `${this.nome} (${this.vendas})`;
         return elemento;
     }
 }
@@ -37,79 +36,7 @@ let frutasDivertidas = [
     new FrutaDivertida('Laranja', 30),
     new FrutaDivertida('Abacaxi', 20),
     new FrutaDivertida('Melancia', 90),
-    new FrutaDivertida('Uva', 45),
-    new FrutaDivertida('Manga', 70),
-    new FrutaDivertida('Pera', 15),
-    new FrutaDivertida('Kiwi', 5),
-    new FrutaDivertida('Morango', 55),
-    new FrutaDivertida('Limão', 25),
-    new FrutaDivertida('Coco', 35),
-    new FrutaDivertida('Goiaba', 40),
-    new FrutaDivertida('Pêssego', 65),
-    new FrutaDivertida('Cereja', 10),
-    new FrutaDivertida('Ameixa', 28),
-    new FrutaDivertida('Mamão', 85),
-    new FrutaDivertida('Jabuticaba', 60),
-    new FrutaDivertida('Framboesa', 75),
-    new FrutaDivertida('Mirtilo', 95),
-    new FrutaDivertida('Raspberry', 40),
-    new FrutaDivertida('Damasco', 30),
-    new FrutaDivertida('Nectarina', 50),
-    new FrutaDivertida('Lichia', 20),
-    new FrutaDivertida('Tangerina', 65),
-    new FrutaDivertida('Cabeludo', 45),
-    new FrutaDivertida('Mangostão', 55),
-    new FrutaDivertida('Rambutan', 35),
-    new FrutaDivertida('Longan', 70),
-    new FrutaDivertida('Durian', 80),
-    new FrutaDivertida('Pitanga', 25),
-    new FrutaDivertida('Maracujá', 60),
-    new FrutaDivertida('Cabeludinha', 20),
-    new FrutaDivertida('Jabuticaba', 50),
-    new FrutaDivertida('Goiaba', 45),
-    new FrutaDivertida('Carambola', 30),
-    new FrutaDivertida('Figo', 65),
-    new FrutaDivertida('Cherimóia', 15),
-    new FrutaDivertida('Tamarindo', 75),
-    new FrutaDivertida('Nectarina', 60),
-    new FrutaDivertida('Pinha', 40),
-    new FrutaDivertida('Pomelo', 25),
-    new FrutaDivertida('Jaca', 90),
-    new FrutaDivertida('Morango silvestre', 35),
-    new FrutaDivertida('Goyavi', 45),
-    new FrutaDivertida('Abacate', 80),
-    new FrutaDivertida('Kiwi gold', 50),
-    new FrutaDivertida('Damasco', 70),
-    new FrutaDivertida('Cabeludinha', 25),
-    new FrutaDivertida('Seriguela', 55),
-    new FrutaDivertida('Bacupari', 30),
-    new FrutaDivertida('Hala', 45),
-    new FrutaDivertida('Nance', 60),
-    new FrutaDivertida('Graviola', 35),
-    new FrutaDivertida('Hala', 50),
-    new FrutaDivertida('Capulí', 20),
-    new FrutaDivertida('Cabeludinha', 75),
-    new FrutaDivertida('Jabuticaba', 85),
-    new FrutaDivertida('Pitanga', 40),
-    new FrutaDivertida('Atemóia', 55),
-    new FrutaDivertida('Tangor', 30),
-    new FrutaDivertida('Lichia', 45),
-    new FrutaDivertida('Tamarillo', 25),
-    new FrutaDivertida('Cupe', 60),
-    new FrutaDivertida('Fruta-pão', 70),
-    new FrutaDivertida('Kiwano', 20),
-    new FrutaDivertida('Cabeludinha', 65),
-    new FrutaDivertida('Morango silvestre', 50),
-    new FrutaDivertida('Laranja kinkan', 45),
-    new FrutaDivertida('Mandarim', 80),
-    new FrutaDivertida('Açaí', 55),
-    new FrutaDivertida('Cabeludinha', 70),
-    new FrutaDivertida('Uvaia', 60),
-    new FrutaDivertida('Pequi', 25),
-    new FrutaDivertida('Fruta-de-condessa', 50),
-    new FrutaDivertida('Saúva', 40),
-    new FrutaDivertida('Guaraná', 55),
-  
+    // ... outras frutas
 ];
 
 function gerarInputs() {
@@ -118,9 +45,9 @@ function gerarInputs() {
     container.innerHTML = '';
     select.innerHTML = '';
 
-    frutasDivertidas.forEach((fruta, index) => {
+    frutasDivertidas.forEach((fruta) => {
         const option = document.createElement('option');
-        option.value = fruta.nome; // Usa o nome da fruta como valor
+        option.value = fruta.nome;
         option.textContent = fruta.nome;
         select.appendChild(option);
     });
@@ -156,13 +83,12 @@ function atualizarTreeMap() {
         }
     }
 
-    // Atualiza a interface gráfica
     const treeMapContainer = document.getElementById('treeMapContainer');
     treeMapContainer.innerHTML = '';
 
     frutasDivertidas.sort((a, b) => b.vendas - a.vendas);
 
-    frutasDivertidas.forEach(fruta => {
+    frutasDivertidas.forEach((fruta) => {
         const elemento = fruta.criarElemento();
         treeMapContainer.appendChild(elemento);
     });
