@@ -14,11 +14,19 @@ h1 {
 
 .container {
     width: 100%;
-    max-width: 12000px;
+    max-width: 1200px;
+    padding: 10px;
+}
+
+.filtroContainer {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
 #frutasInputsContainer {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -36,27 +44,30 @@ h1 {
 
 #treeMapContainer {
     display: grid;
-    grid-template-columns: repeat(10, 1fr); /* Organiza em 3 colunas */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1px;
     border: 2px solid #ccc;
-    margin: none;
-    padding: none;
+
 }
 
 .treeMapItem {
+    display: flex;
+    flex-direction: column;
     box-sizing: border-box;
-    border: 2px solid white;
+    border: 1px solid white;
+    border-radius: 5%;
     color: white;
     font-weight: bold;
- 
     align-items: center;
-    text-align: center;
-    padding: 10px; 
-    transition: all 0.3s ease; 
+    text-align: start;
+    padding: 1px;
+    aspect-ratio: 1.8; /* This will ensure items stay square */
+    transition: all 0.3s ease;
 }
 
 .treeMapItem:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
-    transform: scale(1.05); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
 }
 
 footer {
@@ -68,4 +79,36 @@ footer {
 select {
     margin-bottom: 20px;
     padding: 5px;
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .filtroContainer {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .frutaInput label {
+        width: auto;
+        margin-right: 10px;
+    }
+
+    #frutasInputsContainer {
+        gap: 1px;
+    }
+
+    #treeMapContainer {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    .filtroContainer {
+        flex-direction: column;
+        gap: 5px;
+    }
 }

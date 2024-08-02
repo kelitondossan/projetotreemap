@@ -5,16 +5,18 @@ class FrutaDivertida {
     }
 
     calcularCor() {
-        const maxVendas = 100;
-        const minVendas = 0;
-        const greenIntensity = Math.round((this.vendas - minVendas) / (maxVendas - minVendas) * 255);
+        // Determina a intensidade do verde e do vermelho com base nas vendas
+        const maxVendas = Math.max(...frutasDivertidas.map(f => f.vendas));
+        const minVendas = Math.min(...frutasDivertidas.map(f => f.vendas));
+        const normalizedVendas = (this.vendas - minVendas) / (maxVendas - minVendas);
+        const greenIntensity = Math.round(normalizedVendas * 255);
         const redIntensity = 255 - greenIntensity;
         return `rgb(${redIntensity}, ${greenIntensity}, 0)`;
     }
 
     calcularTamanhoProporcional() {
-        const MAX_VENDAS = 100;
-        return (Math.min(this.vendas, MAX_VENDAS) / MAX_VENDAS) * 100;
+        const maxVendas = Math.max(...frutasDivertidas.map(f => f.vendas));
+        return (Math.min(this.vendas, maxVendas) / maxVendas) * 100;
     }
 
     criarElemento() {
@@ -30,10 +32,11 @@ class FrutaDivertida {
 }
 
 let frutasDivertidas = [
-    new FrutaDivertida('Maçã', 45),
-    new FrutaDivertida('Banana', 30),
-    new FrutaDivertida('Laranja', 20),
-    new FrutaDivertida('Abacaxi', 10)
+    new FrutaDivertida('Maçã', 80),
+    new FrutaDivertida('Banana', 50),
+    new FrutaDivertida('Laranja', 30),
+    new FrutaDivertida('Abacaxi', 20),
+    new FrutaDivertida('Melancia', 90)
 ];
 
 function gerarInputs() {
@@ -44,7 +47,7 @@ function gerarInputs() {
 
     frutasDivertidas.forEach((fruta, index) => {
         const option = document.createElement('option');
-        option.value = index;
+        option.value = fruta.nome; // Usa o nome da fruta como valor
         option.textContent = fruta.nome;
         select.appendChild(option);
     });
@@ -53,26 +56,31 @@ function gerarInputs() {
 }
 
 function atualizarInput() {
-    const selectedIndex = document.getElementById('frutaSelect').value;
+    const selectedNome = document.getElementById('frutaSelect').value;
     const container = document.getElementById('frutasInputsContainer');
     container.innerHTML = '';
 
-    const fruta = frutasDivertidas[selectedIndex];
-    const div = document.createElement('div');
-    div.className = 'frutaInput';
-    div.innerHTML = `
-        <label for="vendas-${selectedIndex}">${fruta.nome}:</label>
-        <input type="number" id="vendas-${selectedIndex}" value="${fruta.vendas}">
-    `;
-    container.appendChild(div);
+    const fruta = frutasDivertidas.find(f => f.nome === selectedNome);
+    if (fruta) {
+        const div = document.createElement('div');
+        div.className = 'frutaInput';
+        div.innerHTML = `
+            <label for="vendas-${selectedNome}">${fruta.nome}:</label>
+            <input type="number" id="vendas-${selectedNome}" value="${fruta.vendas}">
+        `;
+        container.appendChild(div);
+    }
 }
 
 function atualizarTreeMap() {
-    const selectedIndex = document.getElementById('frutaSelect').value;
-    const input = document.getElementById(`vendas-${selectedIndex}`);
+    const selectedNome = document.getElementById('frutaSelect').value;
+    const input = document.getElementById(`vendas-${selectedNome}`);
 
     if (input) {
-        frutasDivertidas[selectedIndex].vendas = parseInt(input.value) || 0;
+        const fruta = frutasDivertidas.find(f => f.nome === selectedNome);
+        if (fruta) {
+            fruta.vendas = parseInt(input.value) || 0;
+        }
     }
 
     // Atualiza a interface gráfica
