@@ -23,11 +23,11 @@ class FrutaDivertida {
         const cor = this.calcularCor();
         const elemento = document.createElement('div');
         elemento.className = 'treeMapItem';
-        elemento.style.flexGrow = tamanho / 100; // Ajuste para tamanhos visuais melhores
+        elemento.style.flexGrow = tamanho / 5; // Ajuste para tamanhos visuais melhores
         elemento.style.backgroundColor = cor;
         elemento.textContent = `${this.nome} (${this.vendas})`;
-        elemento.style.height = `${tamanho * 50}px`; // Ajuste o multiplicador para obter o tamanho desejado
-        elemento.style.width = `${tamanho * 50}px`;
+        elemento.style.height = `${tamanho * 30}px`; // Ajuste o multiplicador para obter o tamanho desejado
+        elemento.style.width = `${tamanho * 30}px`;
         return elemento;
     }
 }
@@ -80,15 +80,6 @@ let frutasDivertidas = [
     new FrutaDivertida('Fruta-pão', 70),
     new FrutaDivertida('Kiwano', 20),
     new FrutaDivertida('Cabeludinha', 65),
-    new FrutaDivertida('Morango silvestre', 50),
-    new FrutaDivertida('Laranja kinkan', 45),
-    new FrutaDivertida('Cajá', 95),
-    new FrutaDivertida('Cajá-manga', 60),
-    new FrutaDivertida('Inajá', 50),
-    new FrutaDivertida('Mucuri', 40),
-    new FrutaDivertida('Mangaba', 30),
-    new FrutaDivertida('Umbu', 20),
-    new FrutaDivertida('Grumixama', 10),
     new FrutaDivertida('Ameixa-japonesa', 70),
     new FrutaDivertida('Jatobá', 80),
     new FrutaDivertida('Serigüela', 90),
