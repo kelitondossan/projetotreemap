@@ -59,18 +59,6 @@ h1 {
     transform: scale(1.05); 
 }
 
-.verde {
-    background-color: #4CAF50; 
-}
-
-.amarelo {
-    background-color: #FFC107; 
-}
-
-.vermelho {
-    background-color: #F44336; 
-}
-
 footer {
     margin-top: 20px;
     font-size: 14px;

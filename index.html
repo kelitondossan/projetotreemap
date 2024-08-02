@@ -9,9 +9,10 @@
 <body>
     <div class="container">
         <h1>Controle de Vendas de Frutas</h1>
+        <input type="text" id="frutaFiltro" placeholder="Filtrar frutas...">
         <select id="frutaSelect" onchange="atualizarInput()"></select>
         <div id="frutasInputsContainer"></div>
-        <button onclick="atualizarTreeMap()">Atualizar Vendas</button>
+        <button id="atualizarButton">Atualizar Vendas</button>
         <div id="treeMapContainer"></div>
     </div>
     <footer>
