@@ -70,7 +70,26 @@ let frutasDivertidas = [
     new FrutaDivertida('Carambola', 30),
     new FrutaDivertida('Figo', 65),
     new FrutaDivertida('Cherimóia', 15),
-    
+    new FrutaDivertida('Tamarindo', 75),
+    new FrutaDivertida('Nectarina', 60),
+    new FrutaDivertida('Pinha', 40),
+    new FrutaDivertida('Pomelo', 25),
+    new FrutaDivertida('Jaca', 90),
+    new FrutaDivertida('Morango silvestre', 35),
+    new FrutaDivertida('Goyavi', 45),
+    new FrutaDivertida('Abacate', 80),
+    new FrutaDivertida('Kiwi gold', 50),
+    new FrutaDivertida('Damasco', 70),
+    new FrutaDivertida('Cabeludinha', 25),
+    new FrutaDivertida('Seriguela', 55),
+    new FrutaDivertida('Bacupari', 30),
+    new FrutaDivertida('Hala', 45),
+    new FrutaDivertida('Nance', 60),
+    new FrutaDivertida('Graviola', 35),
+    new FrutaDivertida('Hala', 50),
+    new FrutaDivertida('Capulí', 20),
+    new FrutaDivertida('Cabeludinha', 75),
+    new FrutaDivertida('Jabuticaba', 85),
  
 ];
 
